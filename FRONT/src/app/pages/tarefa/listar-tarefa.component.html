@@ -6,28 +6,11 @@
     <table>
       <tr>
         <th>#</th>
-        <th>Seleção A</th>
-        <th>Placar A</th>
-        <th></th>
-        <th>Placar B</th>
-        <th>Seleção B</th>
-        <th>Botão</th>
       </tr>
-      <tr *ngFor = "let jogo of jogos">
-        <td>{{jogo.id}}</td>
-        <td>{{jogo.selecaoA?.nome}}</td>
-        <td>{{jogo.placarA}}</td>
-        <td>x</td>
-        <td>{{jogo.placarB}}</td>
-        <td>{{jogo.selecaoB?.nome}}</td>
+      <tr *ngFor = "let tarefa of tarefas">
+        <td>teste</td>
   
-        <td><a
-          mat-raised-button
-          color="warn"
-          id="btnCadastrar"
-          routerLink="/pages/jogo/palpitar/{{ jogo.id }}"
-        >Palpitar</a>
-        </td>
+    
       </tr>
     
   

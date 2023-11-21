@@ -54,21 +54,49 @@ public class TarefaController : ControllerBase
     }
 
     [HttpGet]
-        [Route("getByStreet/{street}")]
-        public IActionResult GetByStreet([FromRoute] string street)
+        [Route("naoconcluidas")]
+        public IActionResult GetByStreet([FromRoute] string StatusTarefa)
         {
             try
             {
-                Address? address = _ctx.Adresses.FirstOrDefault(x => x.Street == street);
-                if (address != null)
+                Tarefa? tarefa = _context.Tarefas.FirstOrDefault(x => x.StatusTarefa == StatusTarefa);
+                if (tarefa != null)
                 {
-                    return Ok(address);
+                    return Ok(tarefa);
                 }
-                return NotFound($"Endereço com a rua '{street}' não encontrado.");
+                return NotFound($"Endereço com a rua '{StatusTarefa}' não encontrado.");
             }
             catch (Exception e)
             {
                 return BadRequest($"Erro ao buscar endereço: {e.Message}");
+            }
+        }
+
+
+          [HttpPut]
+        [Route("alterar{id}")]
+        public IActionResult Put([FromRoute] int id, [FromBody] Tarefa tarefa)
+        {
+            try
+            {
+                Tarefa? existingTarefa = _context.Tarefas.FirstOrDefault(x => x.TarefaId == id);
+                if (existingTarefa != null)
+                {
+                    existingTarefa.Titulo = tarefa.Titulo;
+                    existingTarefa.Descricao = tarefa.Descricao;
+                    existingTarefa.Categoria = tarefa.Categoria;
+                    existingTarefa.StatusTarefa = tarefa.StatusTarefa;
+
+                    _context.Tarefas.Update(existingTarefa);
+                    _context.SaveChanges();
+
+                    return Ok();
+                }
+                return NotFound($"Endereço com ID '{id}' não encontrado.");
+            }
+            catch (Exception e)
+            {
+                return BadRequest($"Erro ao atualizar endereço: {e.Message}");
             }
         }
 }

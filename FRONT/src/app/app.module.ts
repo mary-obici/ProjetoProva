@@ -17,18 +17,12 @@ import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { AnimalListComponent } from "./pages/animal/animal-list/animal-list.component";
-import { AnimalRegisterComponent } from "./pages/animal/animal-register/animal-register.component";
-import { CustomerRegisterComponent } from "./pages/customer/customer-register/customer-register.component";
-import { CustomerListComponent } from "./pages/customer/customer-list/customer-list.component";
+import { ListarTarefaComponent } from "./pages/tarefa/listar-tarefa.component";
 
 @NgModule({
   declarations: [
     AppComponent, 
-    AnimalListComponent,
-    AnimalRegisterComponent,
-    CustomerRegisterComponent,
-    CustomerListComponent
+    ListarTarefaComponent
   ],
   imports: [
     BrowserModule,

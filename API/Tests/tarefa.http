@@ -1,5 +1,7 @@
 @base_url = https://localhost:7015/api/tarefa
 
+
+
 ### Listar Tarefas ###
 GET {{base_url}}/listar
 
@@ -11,7 +13,8 @@ Content-Type: application/json
   "Titulo": "Compras no Supermercado",
   "Descricao": "1. Fazer lista de compras: pão, leite, ovos, frutas, vegetais",
   "CategoriaId": 1,
-  "StatusTarefa": "Não concluida"
+  "StatusTarefa": "naoconcluida"
 
 }
+
 
